@@ -9,15 +9,18 @@ Template.postEdit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
     }
-    // $set operator replaces only fields supplied with the value.  Rest stays the same.
-    Posts.update(currentPostId, {$set: postProperties}, function(error) {
-      if (error) {
-        // display the alert to the user
-        alert(error.reason);
-      } else {
-        Router.go('postPage', {_id: currentPostId});
-      }
+
+    Meteor.call('postUpdate', postProperties, currentPostId, function(error, result) {
+      // handle error exits
+      if (error)
+        alert('This post was not updated! ');
+      if (results.postExists)
+        alert('this post already exists!');
+
+      // redirect user to home page
+      Router.go('postsList');
     });
+
   },
     'click .delete': function(e) {
       e.preventDefault();
