@@ -2,4 +2,9 @@
   <div class="post-page page">
     {{> postItem}}
   </div>
+  <div class='comments'>
+    {{#each comments}}
+      {{> commentItem }}
+    {{/each}}
+  </div>
 </template>
