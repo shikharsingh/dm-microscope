@@ -29,7 +29,7 @@ Template.postSubmit.events({
     var errors = validatePost(post);
 
     // If there was an error, display them and tell user gtfo.
-    if (errors.title || errors.url)
+    if (errors != {})
       return Session.set('postSubmitErrors', errors);
 
     Meteor.call('postInsert', post, function(error, result) {
