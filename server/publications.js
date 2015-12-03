@@ -1,5 +1,9 @@
-Meteor.publish('posts', function() {
-  return Posts.find();
+Meteor.publish('posts', function(options) {
+  check(options, {
+    sort: Object,
+    limit: Number
+  });
+  return Posts.find({}, options);
 });
 
 Meteor.publish("userData", function () {
@@ -17,7 +21,7 @@ Meteor.publish("userData", function () {
   var users = Meteor.users.find()
   var users.
 
-});*/
+}); */
 
 // Publish comments when provided a postId
 Meteor.publish('comments', function(postId) {
