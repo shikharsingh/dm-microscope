@@ -12,6 +12,13 @@ Meteor.publish("userData", function () {
   }
 });
 
+// To do: implement a reactive method to publish the number of users currently logged in and display in a badge on the screen with the current user count.
+/* Meteor.publish('usersLoggedIn', function(){
+  var users = Meteor.users.find()
+  var users.
+
+});*/
+
 // Publish comments when provided a postId
 Meteor.publish('comments', function(postId) {
   check(postId, String);
