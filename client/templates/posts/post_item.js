@@ -10,7 +10,7 @@ Template.postItem.helpers({
 });
 
 Template.postItem.events({
-  'click .upvote' function(e) {
+  'click .upvote': function(e) {
     e.preventDefault();
     //call upvote method
     Meteor.call('upvote', this._id);
