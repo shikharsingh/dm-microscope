@@ -4,13 +4,21 @@ Meteor.publish('posts', function() {
 
 Meteor.publish("userData", function () {
   if (this.userId) {
-    return Meteor.users.find({_id: this.userId},
-                             {fields: {'createdAt': 1}});
+    return Meteor.users.find(
+      {_id: this.userId},
+        {fields: {'createdAt': 1}});
   } else {
     this.ready();
   }
 });
 
-Meteor.publish('comments', function() {
-  return Comments.find();
+// Publish comments when provided a postId
+Meteor.publish('comments', function(postId) {
+  check(postId, String);
+  return Comments.find({postId: postId});
+});
+
+// Publish all notifications
+Meteor.publish('notifications', function() {
+  return Notifications.find();
 });

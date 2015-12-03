@@ -13,9 +13,9 @@ Template.postEdit.events({
     Meteor.call('postUpdate', postProperties, currentPostId, function(error, result) {
       // handle error exits
       if (error)
-        alert('This post was not updated! ');
-      if (results.postExists)
-        alert('this post already exists!');
+        throwError('This post was not updated!');
+      if (result.postExists)
+        throwError('this post already exists!');
 
       // redirect user to home page
       Router.go('postsList');
