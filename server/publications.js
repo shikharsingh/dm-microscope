@@ -18,7 +18,7 @@ Meteor.publish('comments', function(postId) {
   return Comments.find({postId: postId});
 });
 
-// Publish all notifications
+// Publish unread notifications belonging to current user
 Meteor.publish('notifications', function() {
-  return Notifications.find();
+  return Notifications.find({userId: this.userId, read: false});
 });

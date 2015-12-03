@@ -50,6 +50,8 @@ Template.commentSubmit.events({
           // clear the form body
           $body.val('');
         }
+          sendMessage("Success! Your comment was posted.");
+
         // data will be loaded automatically so nothing to do here :)
       });
     }
