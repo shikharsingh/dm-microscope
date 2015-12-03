@@ -25,3 +25,5 @@ reload
 random
 ejson
 spacebars
+accounts-facebook
+accounts-github

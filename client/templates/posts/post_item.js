@@ -8,3 +8,11 @@ Template.postItem.helpers({
     return a.hostname;
   }
 });
+
+Template.postItem.events({
+  'click .upvote' function(e) {
+    e.preventDefault();
+    //call upvote method
+    Meteor.call('upvote', this._id);
+  }
+});

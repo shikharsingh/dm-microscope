@@ -3,6 +3,7 @@ Meteor.publish('posts', function(options) {
     sort: Object,
     limit: Number
   });
+  console.log(options);
   return Posts.find({}, options);
 });
 
@@ -14,6 +15,11 @@ Meteor.publish("userData", function () {
   } else {
     this.ready();
   }
+});
+
+Meteor.publish("singlePost", function(id) {
+  check(id, String);
+  return Posts.find(id);
 });
 
 // To do: implement a reactive method to publish the number of users currently logged in and display in a badge on the screen with the current user count.

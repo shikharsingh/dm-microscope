@@ -4,4 +4,11 @@
       {{> postItem}}
     {{/each}}
   </div>
+   {{#if nextPath}}
+    <a class="btn btn-primary" href="{{ nextPath }}"> Load More </a>
+   {{else}}
+      {{#unless ready}}
+        {{ > spinner }}
+      {{/unless}}
+   {{/if}}
 </template>
