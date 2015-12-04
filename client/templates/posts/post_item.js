@@ -21,6 +21,11 @@ Template.postItem.events({
   'click .upvotable': function(e) {
     e.preventDefault();
     //call upvote method
-    Meteor.call('upvote', this._id);
+    Meteor.call('upvote', this._id, function(result){
+        if (result) {
+          sendMessage("Your upvote was submitted!");
+        }
+    });
+
   }
 });

@@ -18,7 +18,7 @@ Template.postEdit.events({
         throwError('this post already exists!');
 
       // redirect user to home page
-      Router.go('postsList');
+      Router.go('home');
     });
 
   },
@@ -28,7 +28,7 @@ Template.postEdit.events({
       if (confirm("Delete this post?")) {
         var currentPostId = this._id;
         Posts.remove(currentPostId);
-        Router.go('postsList');
+        Router.go('home');
       }
     }
 });
